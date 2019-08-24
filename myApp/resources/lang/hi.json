@@ -1,0 +1,27 @@
+{
+    "welcome" : "आपका स्वागत है!",
+    "handler" : {
+        "validation_exception" : "दिया गया डेटा अमान्य था।",
+        "auth_exception" : "प्रमाणित उपयोगकर्ता नहीं हैं।" ,
+        "404" : "404 नहीं मिला।"
+    },
+    
+    "auth" : {           
+           "register_success_email_send" : "उपयोगकर्ता सफलतापूर्वक पंजीकृत! आपके ईमेल पते पर एक ईमेल सक्रियकरण लिंक भेजा गया है।",
+           "register_success" : "उपयोगकर्ता सफलतापूर्वक पंजीकृत!",
+           "password_change_success" : "पासवर्ड सफलतापूर्वक बदला गया!",
+           "password_change_failed" : "पासवर्ड बदलने में असफल!",
+           "password_expired" : "आपके पासवर्ड की समय सीमा समाप्त हो गई गई है।",
+           "login_success" : "उपयोगकर्ता लॉगिन सफलतापूर्वक!",
+           "password_not_match" : "पासवर्ड नहीं मिला!",
+           "token_refresh_success" : "प्रामाणिक टोकन सफलतापूर्वक नई की गयी!",
+           "invalid_refresh_token" : "ताज़ा टोकन अमान्य है।",
+           "user_not_found" : "उपयोगकर्ता नहीं मिला!",
+           "invalid_activation_code" : "अमान्य सक्रियण कोड।",
+           "logout_success" : "लॉगआउट सफलतापूर्वक।",
+           "logout_failed" : "लॉगआउट विफल।",
+           "open_reg_deny_no_activation_code" : "क्षमा करें, लेकिन आप बिना निमंत्रण के पंजीकरण नहीं कर सकते हैं!"
+        },
+    "email_taken" : "यह ईमेल पहले ही लिया जा चुका है।"
+    
+}

@@ -1,0 +1,33 @@
+{
+    "welcome" : "You are welcome!",
+    "handler" : {
+        "validation_exception" : "The given data was invalid.",
+        "auth_exception" : "Unauthenticated" ,
+        "404" : "404 Not Found"
+    },
+    
+    "auth" : {
+        "register_success_email_send" : "User Registered Successfully! An email activation link have been sent at your email address",
+        "register_success" : "User Registered Successfully!",
+        "password_change_success" : "Password Change Successfully!",
+        "password_change_failed" : "Password Change Failed!",
+        "password_expired" : "Your password has been expired",
+        "login_success" : "User Login Successfully!",
+        "password_not_match" : "Password not match!",
+        "token_refresh_success" : "Auth Token Refreshed Successfully!",
+        "invalid_refresh_token" : "The refresh token is invalid.",
+        "user_not_found" : "User Not Found!",
+        "invalid_activation_code" : "Invalid activation code",
+        "logout_success" : "Logout Successfully",
+        "logout_failed" : "Logout Failed",        
+        "open_reg_deny_no_activation_code" : "Sorry, but you cannot register without an invite!"
+    },
+
+    "verify_email" : {
+        "success" : "Your e-mail is verified. You can now login.",
+        "already_exist" : "Your e-mail is already verified. You can now login.",
+        "link_expire" : "Sorry your email cannot be identified."
+    },
+    "email_taken" : "The Email has already been taken."
+    
+}

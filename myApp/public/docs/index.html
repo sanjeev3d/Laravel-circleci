@@ -1,0 +1,726 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript","php"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                                  <a href="#" data-language-name="php">php</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Register or Login</h1>
+<!-- START_e37495e5da5e4623f4c207bddbe39fa1 -->
+<h2>api/authenticate/register</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/authenticate/register" \
+    -H "Content-Type: application/json" \
+    -d '{"username":"ratione","email":"eos","password":"et","first_name":"excepturi","last_name":"voluptatem","activation_code":"sint","external_id":"nisi","metadata":"pariatur","timezone":"saepe"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/authenticate/register");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "username": "ratione",
+    "email": "eos",
+    "password": "et",
+    "first_name": "excepturi",
+    "last_name": "voluptatem",
+    "activation_code": "sint",
+    "external_id": "nisi",
+    "metadata": "pariatur",
+    "timezone": "saepe"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post("http://localhost/api/authenticate/register", [
+    'headers' =&gt; [
+            "Content-Type" =&gt; "application/json",
+        ],
+    'json' =&gt; [
+            "username" =&gt; "ratione",
+            "email" =&gt; "eos",
+            "password" =&gt; "et",
+            "first_name" =&gt; "excepturi",
+            "last_name" =&gt; "voluptatem",
+            "activation_code" =&gt; "sint",
+            "external_id" =&gt; "nisi",
+            "metadata" =&gt; "pariatur",
+            "timezone" =&gt; "saepe",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "message": "User Registered Successfully! An email activation link have been sent at your email address",
+    "data": {
+        "token_type": "Bearer",
+        "expires_in": 31622400,
+        "access_token": "string",
+        "refresh_token": "string"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "The given data was invalid.",
+    "errors": {
+        "email": [
+            "The Email field is required."
+        ],
+        "username": [
+            "The Username field is required."
+        ],
+        "first_name": [
+            "The First Name field is required."
+        ],
+        "last_name": [
+            "The Last Name field is required."
+        ],
+        "password": [
+            "The Password field is required."
+        ]
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "404 Not Found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/authenticate/register</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>required</td>
+<td>User Unique UserName</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>User Email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>User Password</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>required</td>
+<td>User First Name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>required</td>
+<td>User Last Name</td>
+</tr>
+<tr>
+<td>activation_code</td>
+<td>string</td>
+<td>optional</td>
+<td>User Activation Code</td>
+</tr>
+<tr>
+<td>external_id</td>
+<td>string</td>
+<td>optional</td>
+<td>User External Id</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>json</td>
+<td>optional</td>
+<td>User Meta data [{&quot;title&quot;:&quot;Tapas&quot;}, {&quot;url&quot; : &quot;<a href="https://www.yahoo.com/">https://www.yahoo.com/</a>&quot;}]</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>string</td>
+<td>optional</td>
+<td>User timezone</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e37495e5da5e4623f4c207bddbe39fa1 -->
+<!-- START_284e564368f7dba0bfacf4e06fdbf384 -->
+<h2>api/authenticate/login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/authenticate/login" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"sit","password":"labore"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/authenticate/login");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "sit",
+    "password": "labore"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post("http://localhost/api/authenticate/login", [
+    'headers' =&gt; [
+            "Content-Type" =&gt; "application/json",
+        ],
+    'json' =&gt; [
+            "email" =&gt; "sit",
+            "password" =&gt; "labore",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "message": "User Login Successfully!",
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "string",
+            "email": "string",
+            "username": "string",
+            "first_name": "string",
+            "last_name": "string",
+            "timezone": "string",
+            "phone": "string",
+            "dob": "string",
+            "activation_code": "string",
+            "external_id": "string",
+            "metadata": "string",
+            "email_verified_at": "string",
+            "status": "integer",
+            "created_at": "datetime",
+            "updated_at": "datetime"
+        },
+        "auth": {
+            "token_type": "Bearer",
+            "expires_in": "timestamp",
+            "access_token": "string",
+            "refresh_token": "string"
+        }
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "404 Not Found"
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "The given data was invalid.",
+    "errors": {
+        "email": [
+            "The Email field is required."
+        ],
+        "password": [
+            "The Password field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/authenticate/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>User Email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>User Password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_284e564368f7dba0bfacf4e06fdbf384 -->
+<!-- START_d151945492f7b400adecdb178895dc24 -->
+<h2>api/adminuser</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/adminuser" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/adminuser");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get("http://localhost/api/adminuser", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer {token}",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "message": "string",
+    "data": {
+        "id": "integer",
+        "name": "string",
+        "email": "string",
+        "email_verified_at": "string",
+        "created_at": "string [date-time]",
+        "updated_at": "string [date-time]"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "404 Not Found"
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "Unauthenticated"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/adminuser</code></p>
+<!-- END_d151945492f7b400adecdb178895dc24 -->
+<!-- START_2b6e5a4b188cb183c7e59558cce36cb6 -->
+<h2>api/user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/user" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/user");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get("http://localhost/api/user", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer {token}",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "Unauthenticated"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/user</code></p>
+<!-- END_2b6e5a4b188cb183c7e59558cce36cb6 -->
+<!-- START_b4f4625b609a18310a50b1dddf752a55 -->
+<h2>api/resetPassword</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/resetPassword" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/resetPassword");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post("http://localhost/api/resetPassword", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer {token}",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "Unauthenticated"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/resetPassword</code></p>
+<!-- END_b4f4625b609a18310a50b1dddf752a55 -->
+<!-- START_406e4552819a456070d1f6c93688188d -->
+<h2>api/refreshToken</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/refreshToken" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"refresh_token":"facilis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/refreshToken");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "refresh_token": "facilis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post("http://localhost/api/refreshToken", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer {token}",
+            "Content-Type" =&gt; "application/json",
+        ],
+    'json' =&gt; [
+            "refresh_token" =&gt; "facilis",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "message": "Auth Token Refreshed Successfully!",
+    "data": {
+        "auth": {
+            "token_type": "Bearer",
+            "expires_in": "timestamp",
+            "access_token": "string",
+            "refresh_token": "string"
+        }
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "The refresh token is invalid."
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "Unauthenticated"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "404 Not Found"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/refreshToken</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refresh_token</td>
+<td>string</td>
+<td>required</td>
+<td>Provide refresh token</td>
+</tr>
+</tbody>
+</table>
+<!-- END_406e4552819a456070d1f6c93688188d -->
+<!-- START_61739f3220a224b34228600649230ad1 -->
+<h2>api/logout</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/logout" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/logout");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post("http://localhost/api/logout", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer {token}",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "Unauthenticated"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "error",
+    "message": "404 Not Found"
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "message": "Logout Successfully"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/logout</code></p>
+<!-- END_61739f3220a224b34228600649230ad1 -->
+<!-- START_c1aa27515bf03f12d5698af59e31585a -->
+<h2>test</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/test" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/test");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get("http://localhost/test", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer {token}",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET test</code></p>
+<!-- END_c1aa27515bf03f12d5698af59e31585a -->
+<!-- START_fa745d6b77c91410642b30e7e1129271 -->
+<h2>user/verify/{token}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/user/verify/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/user/verify/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get("http://localhost/user/verify/1", [
+    'headers' =&gt; [
+            "Authorization" =&gt; "Bearer {token}",
+        ],
+]);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET user/verify/{token}</code></p>
+<!-- END_fa745d6b77c91410642b30e7e1129271 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="php">php</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
