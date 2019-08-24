@@ -18,10 +18,11 @@ jobs:
       #    command: |
 
 workflows:
-  build:
-    jobs:
-    - build
-        filters:
-          branches:
-            only: master
   version: 2
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - dev
