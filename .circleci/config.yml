@@ -4,11 +4,24 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run:
-          name: Run docker-compose
-          command: |
-            docker-compose build
-            docker-compose up
+      #- run:
+      #    name: Run docker-compose build
+      #    command: docker-compose build
       - run:
           name: Check working directory
           command: pwd
+      - run: 
+          name: Run docker-compose up
+          command: docker-compose up
+      #- run:
+      #    name: Laravel unit test
+      #    command: |
+
+workflows:
+  build:
+    jobs:
+    - build
+        filters:
+          branches:
+            only: master
+  version: 2
