@@ -7,11 +7,16 @@ jobs:
       - run:
           name: Run docker-compose build
           command: docker-compose build
+
+      - run:
+          name: Install composer
+          command: |
+            cd myApp
+            composer install
  
       - run:
           name: Laravel unit test
           command: |
-            cd myApp
             ls -ltr
             vendor/bin/phpunit
 
