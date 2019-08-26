@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Laravel unit test
           command: |
-            ls -ltr
+            ls -ltr myApp
             vendor/bin/phpunit
 
       - run: 
