@@ -4,9 +4,9 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run:
-          name: Run docker-compose build
-          command: docker-compose build
+      #- run:
+      #    name: Run docker-compose build
+      #    command: docker-compose build
       - run:
           name: Check working directory
           command: pwd
@@ -14,15 +14,8 @@ jobs:
           name: Run docker-compose up 
           command: docker-compose up -d 
       - run:
-          name: change directory
-          command: cd myApp
-      - run:
-          name: List project directory
-          command: ls -ltr
-
-      - run:
           name: Laravel unit test
-          command: vendor/bin/phpunit 
+          command: . myApp/vendor/bin/phpunit 
             
       
 workflows:
