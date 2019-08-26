@@ -10,12 +10,6 @@ jobs:
           command: docker-compose build
 
       - run:
-          name: Install composer
-          command: |
-            cd myApp
-            composer install
- 
-      - run:
           name: Laravel unit test
           command: |
             ls -ltr
