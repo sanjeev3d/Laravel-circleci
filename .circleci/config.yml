@@ -10,13 +10,14 @@ jobs:
       - run:
           name: Check working directory
           command: pwd
-      - run: 
-          name: Run docker-compose up 
-          command: docker-compose up -d 
+      #- run: 
+      #    name: Run docker-compose up 
+      #    command: docker-compose up -d 
       - run:
           name: Laravel unit test
           command: |
             cd myApp
+            ls -ltr
             vendor/bin/phpunit 
             
       
