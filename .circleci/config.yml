@@ -10,16 +10,19 @@ jobs:
       - run:
           name: Check working directory
           command: pwd
-
-      - run:
-          name: List project directory
-          command: ls -ltr
       - run: 
           name: Run docker-compose up 
           command: docker-compose up -d 
       - run:
+          name: change directory
+          command: cd myApp
+      - run:
+          name: List project directory
+          command: ls -ltr
+
+      - run:
           name: Laravel unit test
-          command: myApp/vendor/bin/phpunit 
+          command: vendor/bin/phpunit 
             
       
 workflows:
