@@ -15,7 +15,9 @@ jobs:
           command: docker-compose up -d 
       - run:
           name: Laravel unit test
-          command: . myApp/vendor/bin/phpunit 
+          command: |
+            cd myApp
+            vendor/bin/phpunit 
             
       
 workflows:
