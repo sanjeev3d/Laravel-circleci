@@ -13,7 +13,6 @@ jobs:
           name: Laravel unit test
           command: |
             ls -ltr myApp
-            vendor/bin/phpunit
 
       - run: 
           name: Run docker-compose up 

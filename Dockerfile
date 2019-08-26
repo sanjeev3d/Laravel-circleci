@@ -20,7 +20,7 @@ RUN apt-get update && \
     phpenmod pdo_mysql && \
     phpenmod mbstring && \
     a2enmod rewrite && \
-    curl -sS https://getcomposer.org/installer -o composer-setup.php && \
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
     php composer-setup.php --filename=composer --version=1.8.4 --install-dir=/usr/local/bin && \
     cd /var/myApp/ && \
     composer install && \
