@@ -5,27 +5,22 @@ jobs:
       docker_layer_caching: false
     steps:
       - checkout
-        # - run:
-        #  name: Run docker-compose build
-        #  command: docker-compose build
-
-      - run:
-          name: Install Composer
-          command: |
-              curl -sS https://getcomposer.org/installer -o composer-setup.php
-              php composer-setup.php --filename=composer --version=1.8.4 --install-dir=/usr/local/bin
+        - run:
+          name: Run docker-compose build
+          command: docker-compose build
               
 
       - run:
           name: Laravel unit test
           command: |
-            cd /var/myApp/ 
-            composer install
+            cd /var/myApp/
+            ls -ltr 
+            vendor/bin/phpunit
             ls -ltr
 
-        #- run: 
-            # name: Run docker-compose up 
-            # command: docker-compose up -d 
+        - run: 
+            name: Run docker-compose up 
+            command: docker-compose up -d 
             
       
 workflows:
