@@ -5,7 +5,7 @@ jobs:
       docker_layer_caching: false
     steps:
       - checkout
-      - run:
+        - run:
           name: Run docker-compose build
           command: docker-compose build
               
@@ -18,9 +18,9 @@ jobs:
             vendor/bin/phpunit
             ls -ltr
 
-      - run: 
-          name: Run docker-compose up 
-          command: docker-compose up -d 
+        - run: 
+            name: Run docker-compose up 
+            command: docker-compose up -d 
             
       
 workflows:
