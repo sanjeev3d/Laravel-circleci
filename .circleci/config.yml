@@ -5,18 +5,19 @@ jobs:
       docker_layer_caching: false
     steps:
       - checkout
-      - run:
-          name: Run docker-compose build
-          command: docker-compose build
+        # - run:
+        #  name: Run docker-compose build
+        #  command: docker-compose build
 
       - run:
           name: Laravel unit test
           command: |
-            ls -ltr myApp
+            cd myApp
+            ls -ltr
 
-      - run: 
-          name: Run docker-compose up 
-          command: docker-compose up -d 
+            #- run: 
+            # name: Run docker-compose up 
+            # command: docker-compose up -d 
             
       
 workflows:

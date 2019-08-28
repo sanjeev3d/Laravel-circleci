@@ -10,6 +10,7 @@ ADD myApp/public/* /var/www/html/public/
 ADD myApp/ /var/myApp
 ADD apache2.conf /etc/apache2/sites-enabled/000-default.conf
 ADD gip-app-entrypoint.sh /
+RUN chmod -R 777 /var/myApp
 
 RUN apt-get update && \
     apt-get install -y python-software-properties software-properties-common && \
