@@ -12,15 +12,14 @@ jobs:
       - run:
           name: Install Composer
           command: |
-              curl -sS https://getcomposer.org/installer -o composer-setup.php && \
-              php composer-setup.php --filename=composer --version=1.8.4 --install-dir=/usr/local/bin && \
-              cd /var/myApp/ && \
-              composer install && \
+              curl -sS https://getcomposer.org/installer -o composer-setup.php
+              php composer-setup.php --filename=composer --version=1.8.4 --install-dir=/usr/local/bin
+              
 
       - run:
           name: Laravel unit test
           command: |
-            cd myApp
+            cd /var/myApp/ 
             composer install
             ls -ltr
 
