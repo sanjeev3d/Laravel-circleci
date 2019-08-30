@@ -10,13 +10,13 @@ jobs:
           command: docker-compose build
               
 
-      - run:
-          name: Laravel unit test
-          command: |
-            cd /var/myApp/
-            ls -ltr 
-            vendor/bin/phpunit --filter testRegisterSuccessfully UserRegisterTest ./tests/Unit/UserRegisterTest.php
-            ls -ltr
+      #- run:
+      #    name: Laravel unit test
+      #    command: |
+      #      cd /var/myApp/
+      #      ls -ltr 
+      #      vendor/bin/phpunit --filter testRegisterSuccessfully UserRegisterTest ./tests/Unit/UserRegisterTest.php
+      #      ls -ltr
 
       - run: 
           name: Run docker-compose up 
