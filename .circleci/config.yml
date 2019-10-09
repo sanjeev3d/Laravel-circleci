@@ -17,7 +17,7 @@ jobs:
           command: sleep 180;
 
       - run:
-          name: Test context
+          name: Test context for secrets
           command: echo $S3_CREDENTIAL
       - run:
           name: Laravel Unit Test
